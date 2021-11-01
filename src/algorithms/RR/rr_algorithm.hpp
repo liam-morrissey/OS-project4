@@ -1,21 +1,15 @@
-#ifndef FCFS_ALGORITHM_HPP
-#define FCFS_ALGORITHM_HPP
+#ifndef RR_ALGORITHM_HPP
+#define RR_ALGORITHM_HPP
 
 #include <memory>
 #include "algorithms/scheduling_algorithm.hpp"
 #include <queue>
 
 /*
-    FCFSScheduler:
-        A representation of a scheduling queue that uses first-come, first-served logic.
-        
-        This is a derived class from the base scheduling algorithm class.
-
-        You are free to add any member functions or member variables that you
-        feel are helpful for implementing the algorithm.
+    RRScheduler:
 */
 
-class FCFSScheduler : public Scheduler {
+class RRScheduler : public Scheduler {
 public:
 
     //==================================================
@@ -30,7 +24,7 @@ public:
     //  Member functions
     //==================================================
 
-    FCFSScheduler(int slice = -1);
+    RRScheduler(int slice = 3);
 
     std::shared_ptr<SchedulingDecision> get_next_thread();
 

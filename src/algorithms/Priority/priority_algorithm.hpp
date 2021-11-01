@@ -1,21 +1,15 @@
-#ifndef FCFS_ALGORITHM_HPP
-#define FCFS_ALGORITHM_HPP
+#ifndef PRIORITY_ALGORITHM_HPP
+#define PRIORITY_ALGORITHM_HPP
 
 #include <memory>
 #include "algorithms/scheduling_algorithm.hpp"
-#include <queue>
+#include "utilities/stable_priority_queue/stable_priority_queue.hpp"
 
 /*
-    FCFSScheduler:
-        A representation of a scheduling queue that uses first-come, first-served logic.
-        
-        This is a derived class from the base scheduling algorithm class.
-
-        You are free to add any member functions or member variables that you
-        feel are helpful for implementing the algorithm.
+    PriorityScheduler:
 */
 
-class FCFSScheduler : public Scheduler {
+class PriorityScheduler : public Scheduler {
 public:
 
     //==================================================
@@ -24,13 +18,14 @@ public:
 
     // TODO: Add any member variables you may need.
     //queue
-    std::queue<std::shared_ptr<Thread>> ready_queue;
+    Stable_Priority_Queue<std::shared_ptr<Thread>> ready_queue;
+    int priority_counts [4] = {0,0,0,0};
 
     //==================================================
     //  Member functions
     //==================================================
 
-    FCFSScheduler(int slice = -1);
+    PriorityScheduler(int slice = -1);
 
     std::shared_ptr<SchedulingDecision> get_next_thread();
 
